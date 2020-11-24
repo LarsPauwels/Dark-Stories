@@ -5,6 +5,7 @@ dotenv.config();
 
 //Controllers
 const Command = require('./controllers/command');
+const Story = require('./controllers/story');
 
 /*
 	FUNCTIONALITIES
@@ -15,14 +16,14 @@ const Command = require('./controllers/command');
 Client.once('ready', () => {
 	console.log('Bot started');
 
-	Command(Client, process.env.GAME, message => {
-		console.log('Typed punish');
-		Punish(message, Client);
-	});
+	// Command(Client, process.env.GAME, message => {
+	// 	console.log('Typed punish');
+	// 	Punish(message, Client);
+	// });
 
 	Command(Client, process.env.STORY, message => {
 		console.log('Typed story');
-		Punish(message, Client);
+		Story(message);
 	});
 });
 
