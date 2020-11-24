@@ -19,6 +19,11 @@ Client.once('ready', () => {
 		console.log('Typed punish');
 		Punish(message, Client);
 	});
+
+	Command(Client, process.env.STORY, message => {
+		console.log('Typed story');
+		Punish(message, Client);
+	});
 });
 
 Client.login(process.env.BOT_TOKEN);
