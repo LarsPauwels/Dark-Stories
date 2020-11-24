@@ -5,6 +5,7 @@ dotenv.config();
 
 //Controllers
 const Command = require('./controllers/command');
+const Game = require('./controllers/game');
 const Story = require('./controllers/story');
 
 /*
@@ -16,10 +17,10 @@ const Story = require('./controllers/story');
 Client.once('ready', () => {
 	console.log('Bot started');
 
-	// Command(Client, process.env.GAME, message => {
-	// 	console.log('Typed punish');
-	// 	Punish(message, Client);
-	// });
+	Command(Client, process.env.GAME, message => {
+		console.log('Typed game');
+		Game(message);
+	});
 
 	Command(Client, process.env.STORY, message => {
 		console.log('Typed story');

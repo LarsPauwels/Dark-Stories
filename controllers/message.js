@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 
-async function createMessage(message, text, desc = "", fields = []) {
+async function createMessage(message, text, desc = "", fields = [], dm = false) {
 	let newMessage = new Discord.MessageEmbed()
-		.setColor('#ff0000')
+		.setColor('#A51B1B')
 		.setTitle(text)
 		.setDescription(desc)
 		.setTimestamp()
@@ -14,7 +14,13 @@ async function createMessage(message, text, desc = "", fields = []) {
 		)
 	}
 
-	const sendMessage = await message.channel.send(newMessage);
+	let sendMessage;
+	if (dm) {
+		sendMessage = await message.author.send(newMessage);
+	} else {
+		sendMessage = await message.channel.send(newMessage);
+	}
+
 	await addDeleteEmoji(sendMessage);
 	return sendMessage;
 }
